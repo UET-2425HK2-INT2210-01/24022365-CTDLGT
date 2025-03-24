@@ -10,14 +10,14 @@ struct Student {
 
 class StudentManager {
 private:
-    Student* head;
+    Student* head;// Con trỏ đầu danh sách liên kết
 
 public:
     StudentManager() : head(nullptr) {}
     
     void insert(int id, const string& name, const string& studentClass) {
         Student* newStudent = new Student{id, name, studentClass, head};
-        head = newStudent;
+        head = newStudent;// Cập nhật con trỏ đầu danh sách
     }
     
     void remove(int id) {
@@ -28,7 +28,7 @@ public:
             prev = current;
             current = current->next;
         }
-        
+        // Duyệt danh sách để tìm sinh viên có ID cần xóa
         if (current == nullptr) return;
         
         if (prev == nullptr) {
@@ -48,7 +48,7 @@ public:
             }
             current = current->next;
         }
-        return "NA,NA";
+        return "NA,NA"; // Trả về giá trị mặc định nếu không tìm thấy sinh viên
     }
 };
 
